@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot matches App the snapshot 1`] = `
+<App>
+  <styled.div>
+    <div
+      className="sc-gsTCUz fYSMQF"
+    >
+      <h1>
+        Become a volunteer
+      </h1>
+      <Form>
+        <styled.div>
+          <div
+            className="sc-bdfBwQ hiYNTf"
+          >
+            <div
+              className="post-form"
+            >
+              <form>
+                <div
+                  className="group"
+                >
+                  <label>
+                    Name:
+                  </label>
+                  <input
+                    id="volunteerName-input"
+                    name="volunteerName"
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="group"
+                >
+                  <label>
+                    Number of hours available per week:
+                  </label>
+                  <input
+                    id="hours-input"
+                    name="hours"
+                    onChange={[Function]}
+                    type="number"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="group"
+                >
+                  <label>
+                    Availability on one area:
+                  </label>
+                  <select
+                    id="job-input"
+                    name="jobTitle"
+                    onChange={[Function]}
+                    value="Raising funds"
+                  >
+                    <option
+                      key="0"
+                      value="Raising funds"
+                    >
+                      Raising funds
+                    </option>
+                    <option
+                      key="1"
+                      value="Food supply"
+                    >
+                      Food supply
+                    </option>
+                    <option
+                      key="2"
+                      value="Adoption promotion"
+                    >
+                      Adoption promotion
+                    </option>
+                  </select>
+                </div>
+                <button
+                  id="submit-button"
+                  onClick={[Function]}
+                  type="submit"
+                >
+                  Submit
+                </button>
+                <button
+                  id="reset-button"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Reset
+                </button>
+              </form>
+              <FormList
+                forms={Array []}
+              >
+                <table
+                  className="center"
+                >
+                  <thead>
+                    <tr>
+                      <th>
+                        Name
+                      </th>
+                      <th>
+                        Hours available
+                      </th>
+                      <th>
+                        Job
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody />
+                </table>
+              </FormList>
+            </div>
+          </div>
+        </styled.div>
+      </Form>
+    </div>
+  </styled.div>
+</App>
+`;
