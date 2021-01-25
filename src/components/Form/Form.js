@@ -47,7 +47,7 @@ function Form() {
       .catch((error) => {
         console.log(error);
       });
-  }, [forms]);
+  }, [JSON.stringify(forms)]);
 
   function updateField(key, event) {
     setForm({ ...form, [key]: event.target.value });
@@ -72,7 +72,7 @@ function Form() {
     axios
       .post("http://localhost:3000/forms", newPost)
       .then(() => {
-        setForm({ ...newPost });
+        setForms([...forms, newPost]);
       })
       .catch((error) => {
         console.log(error);
