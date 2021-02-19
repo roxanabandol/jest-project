@@ -32,6 +32,17 @@ function initialState() {
   return { volunteerName: "", hours: "", jobTitle: jobs[0] };
 }
 
+const getFormsData = () => {
+  return axios
+    .get("http://localhost:3000/forms")
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
+
 function Form() {
   const [form, setForm] = useState(initialState());
   const [forms, setForms] = useState([]);
@@ -39,15 +50,10 @@ function Form() {
   const { volunteerName, hours, jobTitle } = form;
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/forms")
-      .then((response) => {
-        setForms(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [JSON.stringify(forms)]);
+    getFormsData().then((forms) => {
+      setForms(forms);
+    });
+  }, [JSON.stringify(forms)]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function updateField(key, event) {
     setForm({ ...form, [key]: event.target.value });
@@ -57,9 +63,7 @@ function Form() {
     setForm(initialState);
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-
+  function handleSubmit() {
     const { volunteerName, hours, jobTitle } = form;
 
     const newPost = {
@@ -82,7 +86,7 @@ function Form() {
   return (
     <StyledForm>
       <div className="post-form">
-        <form>
+        <form onSubmit={() => handleSubmit()}>
           <div className="group">
             <label>Name:</label>
             <input
@@ -120,11 +124,7 @@ function Form() {
             </select>
           </div>
 
-          <button
-            type="submit"
-            id="submit-button"
-            onClick={(event) => handleSubmit(event)}
-          >
+          <button type="submit" id="submit-button">
             Submit
           </button>
           <button type="button" id="reset-button" onClick={resetForm}>

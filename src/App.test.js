@@ -105,27 +105,12 @@ describe("The events are working ", () => {
     expect(wrapper.find("#job-input").props().value).toBe("Raising funds");
   });
 
-  it("fill the form with values and then submit the form", () => {
+  it("The form is submitted when the click event is fired by simulated click on the submit button", () => {
     const mockCallBack = jest.fn();
-    const wrapper = shallow(<Form />);
 
-    simulateOnChangeInput(wrapper, "#volunteerName-input", "Endzela Gaye");
-    simulateOnChangeInput(wrapper, "#hours-input", "2");
-    simulateOnChangeInput(wrapper, "select", "Food supply");
+    const wrapper = shallow(<Form onSubmit={mockCallBack()} />);
 
-    const button = shallow(
-      <button
-        type="submit"
-        id="submit-button"
-        className="submit"
-        onClick={mockCallBack}
-      >
-        Submit
-      </button>
-    );
-    button.find("#submit-button").simulate("click", {
-      preventDefault: () => {},
-    });
+    wrapper.find("#submit-button").simulate("click");
     expect(mockCallBack).toHaveBeenCalledTimes(1);
   });
 });
